@@ -1,6 +1,7 @@
 
 const arrayMethods = require('../src/arrays');
 /* eslint-disable no-undef */
+
 describe('arrays', () => {
   describe('each', () => {
     it('should invoke cb on each array element', () => {
