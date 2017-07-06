@@ -36,7 +36,7 @@ const reduce = (elements, cb, memo) => {
   }
 
   for (i = 0; i < elements.length; i++) {
-    totalAmount += cb(elements[i], totalAmount);
+    totalAmount = cb(elements[i], totalAmount);
   }
 
   return totalAmount;
