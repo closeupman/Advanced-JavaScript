@@ -25,21 +25,17 @@ const reduce = (elements, cb, memo) => {
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb`.
   // `memo` is the starting value.  If `memo` is undefined then make `elements[0]` the initial value.
-  let totalAmount = 0;
   let i = 0;
-
   if (memo === undefined) {
-    totalAmount = elements[0];
+    memo = elements[0];
     i++;
-  } else {
-    totalAmount = memo;
   }
 
-  for (i = 0; i < elements.length; i++) {
-    totalAmount = cb(elements[i], totalAmount);
+  for (; i < elements.length; i++) {
+    memo = cb(memo, elements[i]);
   }
 
-  return totalAmount;
+  return memo;
 };
 
 const find = (elements, cb) => {
@@ -69,6 +65,11 @@ const filter = (elements, cb) => {
 const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+  // x should return an array (5ms)
+  // ✕ should return a flattened array when given a nested array (1ms)
+  // ✕ should return a flattened array regardless of how deep the array nesting is (2ms)
+  const flatArray = [];
+  return flatArray;
 };
 
 /* eslint-enable no-unused-vars, max-len */
